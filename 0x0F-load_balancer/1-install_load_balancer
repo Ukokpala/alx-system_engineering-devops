@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-<<<<<<< HEAD
 # install load balancer
 
 
@@ -54,24 +53,3 @@ if [ "$(pgrep -c haproxy)" -le 0 ]; then
 else
 	sudo service haproxy restart
 fi
-=======
-# Install and configure HAproxy on your load balancer server
-
-sudo ufw allow 1344
-sudo apt-get -y update
-sudo apt-get install -y haproxy
-
-printf %s "
-backend web-backend
-        balance roundrobin
-        option forwardfor
-        server 9318-web-01 3.236.115.124:80 check
-        server 9318-web-02 3.227.233.5:80 check
-frontend proxynode
-        bind *:80
-        mode http
-        default_backend web-backend
-" >> /etc/haproxy/haproxy.cfg
-
-sudo service haproxy restart
->>>>>>> f7254e2989d4258b2bbc797a9b0b1268b253f981

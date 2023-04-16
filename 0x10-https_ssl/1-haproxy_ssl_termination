@@ -37,10 +37,10 @@ defaults
 backend web-backend
         balance roundrobin
         option forwardfor
-        server 105302-web-01 54.86.104.109:80 check
-        server 105302-web-02 100.25.30.102:80 check
+        server 105302-web-01 35.175.128.195:80 check
+        server 105302-web-02 54.157.167.132:80 check
 frontend proxynode
         bind *:80
 	mode http
-        bind *:443 ssl crt /etc/letsencrypt/live/www.dikalite.tech/fullchain.pem
+        bind *:443 ssl crt /etc/letsencrypt/live/ukamakaokpala.tech/fullchain.pem
         default_backend web-backend
